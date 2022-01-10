@@ -1,4 +1,4 @@
-class Solution {
+class Develope {
 	public static String solution(int[] numbers, String hand) {
         String answer = "";
         
