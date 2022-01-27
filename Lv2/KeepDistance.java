@@ -86,25 +86,11 @@ public class KeepDistance {
 			if(((Location)obj).x == x && ((Location)obj).y == y) return true;
 			else return false;
 		}
-		public int getX() {
-			return x;
-		}
-		public void setX(int x) {
-			this.x = x;
-		}
-		public int getY() {
-			return y;
-		}
-		public void setY(int y) {
-			this.y = y;
-		}
-
 	}
 	
 	// map에 키가 존재하는지 체크
 	private static int check(Map<Object,Boolean> map, Object o) {
 		Boolean isExist = map.containsKey(o);
-		System.out.println(isExist+" "+((Location)o).getX()+" "+((Location)o).getY());
 		if(isExist == true) return 1;
 		else return 0;
 	}
