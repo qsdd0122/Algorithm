@@ -22,7 +22,6 @@ public class NewsClustering {
         		arr_str2.add(str2.substring(i, i+2).toUpperCase());
         	}
         }
-        
         // 교집합
         inter = intersection(arr_str1, arr_str2);
         
@@ -37,32 +36,37 @@ public class NewsClustering {
     // 합집합 구하기
     private static <T> ArrayList<T> union(List<T> arr1, List<T> arr2, List<T> inter){
     	ArrayList<T> arr = new ArrayList<>();
-    	for(int i=0;i<inter.size();i++) {
-    		arr1.remove(inter.get(i));
-    	}
-    	for(int i=0;i<inter.size();i++) {
-    		arr2.remove(inter.get(i));
-    	}
-    	arr.addAll(inter);
+    	
     	arr.addAll(arr1);
     	arr.addAll(arr2);
+    	
+    	for(int i=0;i<inter.size();i++) {
+    		arr.remove(inter.get(i));
+    	}
     	
     	return arr;
     }
     
     // 교집합 구하기
-    private static <T> ArrayList<T> intersection(List<T> arr1, List<T> arr2){
-    	ArrayList<T> arr = new ArrayList<>();
-    	arr.addAll(arr1);
-    	arr.retainAll(arr2);
+    private static <T> List<T> intersection(List<T> arr1, List<T> arr2){
+    	ArrayList<T> arr_temp = new ArrayList<>();
+    	ArrayList<T> arr_temp2 = new ArrayList<>();
+    	arr_temp.addAll(arr1);
+    	arr_temp2.addAll(arr1);
+    	for(int i=0;i<arr2.size();i++) {
+    		arr_temp.remove(arr2.get(i));
+    	}
+    	for(int i=0;i<arr_temp.size();i++) {
+    		arr_temp2.remove(arr_temp.get(i));
+    	}
     	
-    	return arr;
+    	return arr_temp2;
     }
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		String str1 = "E=M*C^2";
-		String str2 = "e=m*c^2";
+		String str1 = "FRANCE";
+		String str2 = "french";
 		
 		System.out.println(solution(str1,str2));
 	}
