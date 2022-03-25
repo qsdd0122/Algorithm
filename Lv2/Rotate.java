@@ -5,11 +5,9 @@ public class Rotate {
        
         for(int i=0;i<s.length();i++) {
         	if(checkRight(s)) {
-        		System.out.println(checkRight(s));
         		answer++;
         	}
         	s = s.substring(1,s.length()) + s.substring(0,1);
-        	System.out.println(s);
         }
         
         return answer;
@@ -22,6 +20,7 @@ public class Rotate {
         		char top = stack.peek();
         		if((top == '[' && c == ']') || (top == '{' && c == '}') || (top == '(' && c == ')'))
         			stack.pop();
+        		else stack.add(c);
         	}
         	else stack.add(c);
         }
